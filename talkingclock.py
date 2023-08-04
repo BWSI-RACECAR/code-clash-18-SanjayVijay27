@@ -26,7 +26,7 @@ Input: 12:05  Output: It's twelve oh five pm
 
 num_to_word = {0:'twelve', 11:"eleven", 10:"ten", 9:"nine", 8:"eight", 7:"seven", 6:"six", 5:"five", 4:"four", 3:"three", 2:"two", 1:"one"}
 ten_to_word = {5:"fifty", 4:"forty", 3:"thirty", 2:"twenty"}
-thing_to_word = {11:"eleven", 12:"twelve", 13:"thirteen", 14:"fourteen", 15:"fifteen", 16:"sixteen", 17:"seventeen", 18:"eighteen", 19:"nineteen"}
+thing_to_word = {11:"eleven", 12:"twelve", 13:"thirteen", 14:"fourteen", 15:"fifteen", 16:"sixteen", 17:"seventeen", 18:"eighteen", 19:"nineteen", 10:"ten"}
 
 
     # This will convert military hours to regular hours, and determine AM vs PM
@@ -48,8 +48,10 @@ class Solution:
                 minute_word = ""
             elif minute <= 9 and minute >= 1:
                 minute_word = "oh " + num_to_word[minute]
+            elif minute <= 19 and minute >= 10:
+                minute_word = thing_to_word[minute]
             elif minute % 10 == 0:
-                minute_word = ten_to_word[minute/10]
+                minute_word = ten_to_word[minute//10]
             else:
                 minute_word = ten_to_word[minute//10] + num_to_word[minute%10]
             
