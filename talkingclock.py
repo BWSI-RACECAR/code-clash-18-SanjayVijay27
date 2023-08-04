@@ -55,7 +55,7 @@ class Solution:
             else:
                 minute_word = ten_to_word[minute//10] + " " + num_to_word[minute%10]
             
-            return "It's " + num_to_word[hour % 12] + minute_word + a
+            return "It's " + num_to_word[hour % 12] + " " + minute_word + a
             
 
 def main():
